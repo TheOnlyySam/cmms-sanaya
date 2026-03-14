@@ -1,0 +1,24 @@
+package com.grash.model;
+
+import com.grash.model.abstracts.CategoryAbstract;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
+@Data
+@NoArgsConstructor
+public class MeterCategory extends CategoryAbstract {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+
+    public MeterCategory(String name, CompanySettings companySettings) {
+        super(name, companySettings);
+    }
+}
+

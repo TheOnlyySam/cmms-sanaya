@@ -1,0 +1,30 @@
+name: Deploy To DigitalOcean
+
+on:
+  push:
+    branches:
+      - main
+
+concurrency:
+  group: deploy-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy over SSH
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          port: ${{ secrets.VPS_PORT || 22 }}
+          script: |
+            set -e
+            cd /opt/atlas-cmms
+            git fetch origin main
+            git checkout main
+            git pull --ff-only origin main
+            docker compose --env-file .env.production.salamaltaey.me -f docker-compose.yml -f docker-compose.production.yml up -d --build --remove-orphans

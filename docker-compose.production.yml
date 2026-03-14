@@ -1,0 +1,10 @@
+services:
+  api:
+    image: atlas-cmms-backend-local
+    build:
+      context: ./api
+
+  frontend:
+    image: atlas-cmms-frontend-local
+    build:
+      context: ./frontend
