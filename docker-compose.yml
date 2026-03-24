@@ -18,7 +18,7 @@ services:
       - postgres
       - minio
     volumes:
-      - ./logo:/app/static/images
+      - ./logos:/app/static/images
       - ./config:/app/static/config
     environment:
       DB_URL: postgres/atlas
@@ -68,7 +68,10 @@ services:
     ports:
       - "${API_PORT:-8080}:8080"
   frontend:
-    image: intelloop/atlas-cmms-frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    image: atlas-cmms-frontend-local
     container_name: atlas-cmms-frontend
     environment:
         API_URL: ${PUBLIC_API_URL}

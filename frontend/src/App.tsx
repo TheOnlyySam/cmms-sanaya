@@ -148,7 +148,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    if (customLogoPaths && hasBrandingEntitlement) {
+    if (customLogoPaths) {
       let link: HTMLLinkElement = document.querySelector("link[rel~='icon']");
       if (!link) {
         link = document.createElement('link');
@@ -157,7 +157,7 @@ function App() {
       }
       link.href = logo.dark;
     }
-  }, [logo.dark, hasBrandingEntitlement]);
+  }, [logo.dark]);
 
   useEffect(() => {
     if (isCloudVersion) {

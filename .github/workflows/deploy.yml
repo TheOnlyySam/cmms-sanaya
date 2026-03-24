@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
 
 concurrency:
   group: deploy-${{ github.ref }}
@@ -23,8 +24,11 @@ jobs:
           port: ${{ secrets.VPS_PORT || 22 }}
           script: |
             set -e
-            cd /opt/atlas-cmms
+            DEPLOY_PATH="${{ vars.DEPLOY_PATH || '/opt/atlas-cmms' }}"
+            ENV_FILE="${{ vars.DEPLOY_ENV_FILE || '.env.production' }}"
+
+            cd "$DEPLOY_PATH"
             git fetch origin main
             git checkout main
             git pull --ff-only origin main
-            docker compose --env-file .env.production.salamaltaey.me -f docker-compose.yml -f docker-compose.production.yml up -d --build --remove-orphans
+            docker compose --env-file "$ENV_FILE" -f docker-compose.yml -f docker-compose.production.yml up -d --build --remove-orphans

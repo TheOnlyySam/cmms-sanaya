@@ -4,7 +4,6 @@ import {
   brandRawConfig,
   customLogoPaths
 } from '../config';
-import { useSelector } from '../store';
 import { useLicenseEntitlement } from './useLicenseEntitlement';
 
 const DEFAULT_WHITE_LOGO = '/static/images/logo/logo-white.png';
@@ -26,23 +25,17 @@ export function useBrand(): BrandConfig {
     addressCity: 'Casablanca-Morocco 20040'
   };
   const isLicenseValid = useLicenseEntitlement('BRANDING');
+  const activeLogo = customLogoPaths
+    ? {
+        white: CUSTOM_WHITE_LOGO,
+        dark: CUSTOM_DARK_LOGO
+      }
+    : {
+        white: DEFAULT_WHITE_LOGO,
+        dark: DEFAULT_DARK_LOGO
+      };
   return {
-    logo: {
-      white: customLogoPaths
-        ? isLicenseValid == null
-          ? null
-          : isLicenseValid
-          ? CUSTOM_WHITE_LOGO
-          : DEFAULT_WHITE_LOGO
-        : DEFAULT_WHITE_LOGO,
-      dark: customLogoPaths
-        ? isLicenseValid == null
-          ? null
-          : isLicenseValid
-          ? CUSTOM_DARK_LOGO
-          : DEFAULT_DARK_LOGO
-        : DEFAULT_DARK_LOGO
-    },
+    logo: activeLogo,
     ...(isLicenseValid && brandRawConfig ? brandRawConfig : defaultBrand)
   };
 }

@@ -48,24 +48,18 @@ export async function getBrandServer(): Promise<BrandConfig> {
   const licensingState = await getLicenseValidityServer();
   const isLicenseValid =
     licensingState.valid && licensingState.entitlements.some((e: LicenseEntitlement) => e === "BRANDING");
+  const activeLogo = customLogoPaths
+    ? {
+        white: CUSTOM_WHITE_LOGO,
+        dark: CUSTOM_DARK_LOGO,
+      }
+    : {
+        white: DEFAULT_WHITE_LOGO,
+        dark: DEFAULT_DARK_LOGO,
+      };
 
   return {
-    logo: {
-      white: customLogoPaths
-        ? isLicenseValid == null
-          ? null
-          : isLicenseValid
-            ? CUSTOM_WHITE_LOGO
-            : DEFAULT_WHITE_LOGO
-        : DEFAULT_WHITE_LOGO,
-      dark: customLogoPaths
-        ? isLicenseValid == null
-          ? null
-          : isLicenseValid
-            ? CUSTOM_DARK_LOGO
-            : DEFAULT_DARK_LOGO
-        : DEFAULT_DARK_LOGO,
-    },
+    logo: activeLogo,
     ...(isLicenseValid && brandRawConfig ? brandRawConfig : defaultBrand),
   };
 }
