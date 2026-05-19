@@ -26,15 +26,12 @@ import org.springframework.transaction.event.TransactionalEventListener;
 import org.thymeleaf.context.Context;
 import org.thymeleaf.spring5.SpringTemplateEngine;
 
-import jakarta.transaction.Transactional;
-
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
 @Slf4j
 @Service
-@Transactional
 @RequiredArgsConstructor
 public class SendgridService implements MailService {
 

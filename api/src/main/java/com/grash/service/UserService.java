@@ -20,6 +20,7 @@ import com.grash.security.JwtTokenProvider;
 import com.grash.utils.Helper;
 import com.grash.utils.Utils;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.context.MessageSource;
@@ -50,6 +51,7 @@ import static com.grash.utils.Consts.usageBasedLicenseLimits;
 @Service
 @RequiredArgsConstructor
 @Transactional
+@Slf4j
 public class UserService {
 
     private final UserRepository userRepository;
@@ -442,8 +444,8 @@ public class UserService {
             String subject = buildRegistrationEmailSubject(userSignupRequest, brandingService);
             String body = buildRegistrationEmailBody(user, userSignupRequest);
             mailServiceFactory.getMailService().sendHtmlMessage(recipients, subject, body, null);
-        } catch (MessagingException | IOException e) {
-            e.printStackTrace();
+        } catch (MessagingException | IOException | RuntimeException e) {
+            log.warn("Failed to send registration notification email for {}", user.getEmail(), e);
         }
     }
 
@@ -514,4 +516,3 @@ public class UserService {
         }
     }
 }
-

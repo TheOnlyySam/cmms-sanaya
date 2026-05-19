@@ -1,0 +1,65 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="2026_05_19_0000000001_create_cm_pm_report" author="codex">
+        <createTable tableName="cm_pm_report">
+            <column name="id" type="bigint">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="company_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_by" type="bigint"/>
+            <column name="updated_by" type="bigint"/>
+            <column name="created_at" type="timestamp">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_at" type="timestamp">
+                <constraints nullable="false"/>
+            </column>
+            <column name="report_ref" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="report_type" type="varchar(10)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="title" type="varchar(255)"/>
+            <column name="project_name" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="client_name" type="varchar(255)"/>
+            <column name="contractor_name" type="varchar(255)"/>
+            <column name="facility_location" type="varchar(255)"/>
+            <column name="system_location" type="varchar(255)"/>
+            <column name="equipment_id" type="varchar(255)"/>
+            <column name="report_date" type="timestamp">
+                <constraints nullable="false"/>
+            </column>
+            <column name="prepared_by" type="varchar(255)"/>
+            <column name="status" type="varchar(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="metadata" type="jsonb"/>
+            <column name="segments" type="jsonb"/>
+        </createTable>
+        <addForeignKeyConstraint baseTableName="cm_pm_report"
+                                 baseColumnNames="company_id"
+                                 referencedTableName="company"
+                                 referencedColumnNames="id"
+                                 constraintName="fk_cm_pm_report_company"/>
+        <addUniqueConstraint tableName="cm_pm_report"
+                             columnNames="company_id, report_ref"
+                             constraintName="uk_cm_pm_report_company_ref"/>
+        <createIndex tableName="cm_pm_report" indexName="idx_cm_pm_report_company">
+            <column name="company_id"/>
+        </createIndex>
+        <createIndex tableName="cm_pm_report" indexName="idx_cm_pm_report_ref">
+            <column name="report_ref"/>
+        </createIndex>
+    </changeSet>
+
+    <changeSet id="2026_05_19_0000000002_create_cm_pm_report_sequence" author="codex">
+        <createSequence sequenceName="cm_pm_report_seq" startValue="1" incrementBy="50"/>
+    </changeSet>
+</databaseChangeLog>

@@ -24,6 +24,7 @@ import SpeedTwoToneIcon from '@mui/icons-material/SpeedTwoTone';
 import MoveToInboxTwoToneIcon from '@mui/icons-material/MoveToInboxTwoTone';
 import AssignmentTwoToneIcon from '@mui/icons-material/AssignmentTwoTone';
 import PendingActionsTwoToneIcon from '@mui/icons-material/PendingActionsTwoTone';
+import DescriptionTwoToneIcon from '@mui/icons-material/DescriptionTwoTone';
 import { PermissionEntity } from '../../../../models/owns/role';
 import { PlanFeature } from '../../../../models/owns/subscriptionPlan';
 import { IS_LOCALHOST } from '../../../../config';
@@ -62,6 +63,12 @@ const ownMenuItems: MenuItems[] = [
         link: '/app/preventive-maintenances',
         icon: PendingActionsTwoToneIcon,
         permission: PermissionEntity.PREVENTIVE_MAINTENANCES
+      },
+      {
+        name: 'cm_pm_reports',
+        link: '/app/cm-pm-reports',
+        icon: DescriptionTwoToneIcon,
+        permission: PermissionEntity.CM_PM_REPORTS
       },
       {
         name: 'Statistics',

@@ -68,7 +68,11 @@ spring:
     properties.mail.smtp:
       auth: true
       starttls.enable: true
+      ssl.enable: ${SMTP_SSL_ENABLE:false}
       ssl.trust: ${SMTP_HOST:smtp.gmail.com}
+      connectiontimeout: ${SMTP_CONNECTION_TIMEOUT:10000}
+      timeout: ${SMTP_TIMEOUT:10000}
+      writetimeout: ${SMTP_WRITE_TIMEOUT:10000}
   cache:
     type: caffeine
 server:

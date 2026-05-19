@@ -88,6 +88,7 @@ const Requests = Loader(lazy(() => import('../content/own/Requests')));
 const PreventiveMaintenances = Loader(
   lazy(() => import('../content/own/PreventiveMaintenance'))
 );
+const CmPmReports = Loader(lazy(() => import('../content/own/CmPmReports')));
 
 const PeopleAndTeams = Loader(
   lazy(() => import('../content/own/PeopleAndTeams'))
@@ -202,6 +203,19 @@ const appRoutes = [
       {
         path: ':preventiveMaintenanceId',
         element: <PreventiveMaintenances />
+      }
+    ]
+  },
+  {
+    path: 'cm-pm-reports',
+    children: [
+      {
+        path: '',
+        element: <CmPmReports />
+      },
+      {
+        path: ':reportId',
+        element: <CmPmReports />
       }
     ]
   },
