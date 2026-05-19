@@ -4,15 +4,15 @@ import "@mui/lab/themeAugmentation";
 import { customColors } from "src/config";
 
 const themeColors = {
-  primary: "#5569ff",
-  secondary: "#6E759F",
+  primary: "#06bfca",
+  secondary: "#6f88a9",
   success: "#57CA22",
   warning: "#FFA319",
   error: "#FF1943",
   info: "#33C2FF",
-  black: "#223354",
+  black: "#0d1f3b",
   white: "#ffffff",
-  primaryAlt: "#000C57",
+  primaryAlt: "#0d1f3b",
   ...customColors,
 };
 
@@ -39,7 +39,7 @@ const colors = {
     success: "0px 1px 4px rgba(68, 214, 0, 0.25), 0px 3px 12px 2px rgba(68, 214, 0, 0.35)",
     error: "0px 1px 4px rgba(255, 25, 67, 0.25), 0px 3px 12px 2px rgba(255, 25, 67, 0.35)",
     info: "0px 1px 4px rgba(51, 194, 255, 0.25), 0px 3px 12px 2px rgba(51, 194, 255, 0.35)",
-    primary: "0px 1px 4px rgba(85, 105, 255, 0.25), 0px 3px 12px 2px rgba(85, 105, 255, 0.35)",
+    primary: "0px 1px 4px rgba(6, 191, 202, 0.22), 0px 3px 12px 2px rgba(6, 191, 202, 0.3)",
     warning: "0px 1px 4px rgba(255, 163, 25, 0.25), 0px 3px 12px 2px rgba(255, 163, 25, 0.35)",
     card: "0px 9px 16px rgba(159, 162, 191, .18), 0px 2px 2px rgba(159, 162, 191, 0.32)",
     cardSm: "0px 2px 3px rgba(159, 162, 191, .18), 0px 1px 1px rgba(159, 162, 191, 0.32)",

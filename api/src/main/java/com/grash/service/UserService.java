@@ -88,6 +88,8 @@ public class UserService {
     private boolean cloudVersion;
     @Value("${allowed-organization-admins}")
     private String[] allowedOrganizationAdmins;
+    @Value("${free-license-users-limit}")
+    private int freeLicenseUsersLimit;
 
 
     public String signin(String email, String password, String type) {
@@ -131,13 +133,16 @@ public class UserService {
             if (userRepository.hasMorePaidUsersThan(licensingState.getUsersCount() - newUsersCount))
                 throw new RuntimeException("Cannot create more users than the license allows: " + licensingState.getUsersCount() + ". Refer to https://github.com/Grashjs/cmms/blob/main/dev-docs/Disable%20users.md");
         }
-        Integer threshold = usageBasedLicenseLimits.get(LicenseEntitlement.UNLIMITED_USERS);
+        Integer threshold = freeLicenseUsersLimit > 0
+                ? freeLicenseUsersLimit
+                : usageBasedLicenseLimits.get(LicenseEntitlement.UNLIMITED_USERS);
         if (!licenseService.hasEntitlement(LicenseEntitlement.UNLIMITED_USERS)
                 && userRepository.hasMorePaidUsersThan(threshold - newUsersCount
         ))
-            throw new RuntimeException("Cannot create more users than the free license allows: " + threshold + ". " +
+            throw new CustomException("Cannot create more users than the free license allows: " + threshold + ". " +
                     "Refer to" +
-                    " https://github.com/Grashjs/cmms/blob/main/dev-docs/Disable%20users.md");
+                    " https://github.com/Grashjs/cmms/blob/main/dev-docs/Disable%20users.md",
+                    HttpStatus.NOT_ACCEPTABLE);
     }
 
     public SignupSuccessResponse<OwnUser> signup(UserSignupRequest userReq) {
@@ -316,7 +321,11 @@ public class UserService {
     public SuccessResponse resetPasswordRequest(String email) {
         throwIfEmailNotificationsNotEnabled();
         email = email.toLowerCase();
-        OwnUser user = findByEmail(email).get();
+        Optional<OwnUser> optionalUser = findByEmail(email);
+        if (optionalUser.isEmpty()) {
+            return new SuccessResponse(true, "If this email is registered, password reset instructions will be sent.");
+        }
+        OwnUser user = optionalUser.get();
         Helper helper = new Helper();
         String password = helper.generateString().replace("-", "").substring(0, 8).toUpperCase();
 
@@ -505,5 +514,4 @@ public class UserService {
         }
     }
 }
-
 

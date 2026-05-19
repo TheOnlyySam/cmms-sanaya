@@ -1,9 +1,6 @@
 "use client";
 import { Box, styled, Tooltip, tooltipClasses, TooltipProps, useMediaQuery, useTheme } from "@mui/material";
 import { Link } from "src/i18n/routing";
-import { useTranslations } from "next-intl";
-import { customLogoPaths } from "src/config";
-import { useEffect, useState } from "react";
 import { useBrand } from "src/contexts/BrandContext";
 import Image from "next/image";
 
@@ -50,10 +47,9 @@ interface OwnProps {
 }
 
 function Logo({ white }: OwnProps) {
-  const t = useTranslations();
   const theme = useTheme();
-  const width = white ? 160 : 120;
-  const height = 60;
+  const width = 170;
+  const height = 46;
   const mobile = useMediaQuery(theme.breakpoints.down("sm"));
   const { logo, name: brandName } = useBrand();
 

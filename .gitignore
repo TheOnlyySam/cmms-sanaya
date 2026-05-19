@@ -7,3 +7,5 @@
 atlas_backups
 docker-compose-dev.yml
 logo
+!frontend/public/static/images/logo/
+!frontend/public/static/images/logo/**

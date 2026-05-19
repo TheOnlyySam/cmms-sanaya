@@ -442,7 +442,10 @@ public class WorkOrderController {
                 HtmlConverter.convertToPdf(reportHtml, target);
                 /* extract output as bytes */
                 byte[] bytes = target.toByteArray();
-                MultipartFile file = new MultipartFileImpl(bytes, "Work Order Report.pdf");
+                String workOrderNumber = savedWorkOrder.getCustomId() == null || savedWorkOrder.getCustomId().isBlank()
+                        ? String.valueOf(savedWorkOrder.getId())
+                        : savedWorkOrder.getCustomId();
+                MultipartFile file = new MultipartFileImpl(bytes, "SyncShield_WO" + workOrderNumber + ".pdf");
                 return ResponseEntity.ok()
                         .body(new SuccessResponse(true, storageServiceFactory.getStorageService().uploadAndSign(file,
                                 "reports/" + user.getCompany().getId())));
@@ -493,6 +496,5 @@ public class WorkOrderController {
     }
 
 }
-
 
 

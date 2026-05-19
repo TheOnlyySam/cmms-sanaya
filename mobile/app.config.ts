@@ -6,12 +6,12 @@ const googleServicesJson = process.env.GOOGLE_SERVICES_JSON;
 
 export default ({ config }: ConfigContext): ExpoConfig => ({
   ...config,
-  name: 'Atlas CMMS',
-  slug: 'atlas-cmms',
+  name: 'SyncShield CMMS',
+  slug: 'syncshield-cmms',
   version: '1.0.38',
   orientation: 'portrait',
   icon: './assets/images/icon.png',
-  scheme: 'atlascmms',
+  scheme: 'syncshieldcmms',
   userInterfaceStyle: 'automatic',
   newArchEnabled: false,
   notification: {
@@ -20,7 +20,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   splash: {
     image: './assets/images/splash.png',
     resizeMode: 'contain',
-    backgroundColor: '#ffffff'
+    backgroundColor: '#0d1f3b'
   },
   updates: {
     fallbackToCacheTimeout: 0,
@@ -40,7 +40,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   android: {
     adaptiveIcon: {
       foregroundImage: './assets/images/adaptive-icon.png',
-      backgroundColor: '#ffffff'
+      backgroundColor: '#0d1f3b'
     },
     versionCode: 31,
     package: 'com.atlas.cmms',
@@ -65,7 +65,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
     [
       'expo-camera',
       {
-        cameraPermission: 'Allow Atlas to access camera.'
+        cameraPermission: 'Allow SyncShield to access camera.'
       }
     ],
     [

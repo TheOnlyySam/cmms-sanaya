@@ -24,7 +24,7 @@ function VerifyEmail() {
       </Helmet>
       <MainContent>
         <Container maxWidth="sm">
-          <Logo />
+          <Logo auth />
           <Card
             sx={{
               mt: 3,

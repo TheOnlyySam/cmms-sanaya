@@ -1409,7 +1409,7 @@ const locale = {
     get_your_license: "Szerezd meg a jogosítványodat",
     title: "Árazás",
     description:
-      "Rugalmas árazási tervek az Atlas CMMS-hez. Válasszon nyílt forráskódú GMAO rendszerünk Cloud és Self-Hosted verziói közül a karbantartási folyamatok optimalizálásához.",
+      "Rugalmas árazási tervek az SyncShield CMMS-hez. Válasszon nyílt forráskódú GMAO rendszerünk Cloud és Self-Hosted verziói közül a karbantartási folyamatok optimalizálásához.",
   },
   get_started: "Kezdés",
   workflow_automation: "Munkafolyamat-automatizálás",
@@ -1485,9 +1485,9 @@ const locale = {
   },
   overview_1: {
     description:
-      "Az Atlas CMMS egy ingyenes, nyílt forráskódú GMAO a munkarendelések, a megelőző karbantartás, az eszközök és a létesítmények kezelésére. Egyszerűsítse karbantartási folyamatait még ma.",
+      "Az SyncShield CMMS egy ingyenes, nyílt forráskódú GMAO a munkarendelések, a megelőző karbantartás, az eszközök és a létesítmények kezelésére. Egyszerűsítse karbantartási folyamatait még ma.",
     keywords:
-      "GMAO, számítógépes karbantartás-kezelő rendszer, EAM, vállalati eszközkezelés, nyílt forráskódú GMAO, ingyenes karbantartási szoftver, munkarendelés-kezelés, megelőző karbantartás, eszköz-követés, létesítménykezelés, karbantartás-követő szoftver, berendezés-karbantartás, Atlas CMMS",
+      "GMAO, számítógépes karbantartás-kezelő rendszer, EAM, vállalati eszközkezelés, nyílt forráskódú GMAO, ingyenes karbantartási szoftver, munkarendelés-kezelés, megelőző karbantartás, eszköz-követés, létesítménykezelés, karbantartás-követő szoftver, berendezés-karbantartás, SyncShield CMMS",
   },
 };
 

@@ -1703,18 +1703,18 @@ const plJSON = {
   trusted_by_maintenance_teams:
     'Zaufany przez zespoły ds. utrzymania ruchu w różnych branżach',
   cut_costs_performance: 'Zredukuj koszty bez utraty wydajności',
-  'free_cmms.title': 'Atlas Darmowe Oprogramowanie CMMS | Karta kredytowa nie jest wymagana',
+  'free_cmms.title': 'SyncShield Darmowe Oprogramowanie CMMS | Karta kredytowa nie jest wymagana',
   'free_cmms.description':
     'Darmowe oprogramowanie CMMS — to nie jest wersja próbna. Zarządzaj konserwacją, zasobami i zleceniami pracy błyskawicznie. Nie wymagamy karty kredytowej.',
   'free_cmms.keywords':
     'darmowy cmms, oprogramowanie do zarządzania konserwacją, darmowe oprogramowanie do zleceń pracy, śledzenie zasobów, konserwacja zapobiegawcza',
   'overview.description':
-    'Atlas CMMS to darmowy system CMMS o otwartym kodzie źródłowym do zarządzania zleceniami pracy, konserwacją zapobiegawczą, zasobami i obiektami. Usprawnij swoje operacje konserwacyjne już dziś.',
+    'SyncShield CMMS to darmowy system CMMS o otwartym kodzie źródłowym do zarządzania zleceniami pracy, konserwacją zapobiegawczą, zasobami i obiektami. Usprawnij swoje operacje konserwacyjne już dziś.',
   'overview.keywords':
-    'CMMS, komputerowy system zarządzania konserwacją, EAM, zarządzanie majątkiem przedsiębiorstwa, cmms open source, darmowe oprogramowanie do konserwacji, zarządzanie zleceniami pracy, konserwacja zapobiegawcza, śledzenie zasobów, zarządzanie obiektami, oprogramowanie do śledzenia konserwacji, konserwacja sprzętu, Atlas CMMS',
-  'pricing.title': 'Cennik - Atlas CMMS',
+    'CMMS, komputerowy system zarządzania konserwacją, EAM, zarządzanie majątkiem przedsiębiorstwa, cmms open source, darmowe oprogramowanie do konserwacji, zarządzanie zleceniami pracy, konserwacja zapobiegawcza, śledzenie zasobów, zarządzanie obiektami, oprogramowanie do śledzenia konserwacji, konserwacja sprzętu, SyncShield CMMS',
+  'pricing.title': 'Cennik - SyncShield CMMS',
   'pricing.description':
-    'Elastyczne plany cenowe dla Atlas CMMS. Wybierz między wersją w chmurze a wersją samodzielnie hostowaną naszego CMMS typu open source, aby zoptymalizować swoje operacje konserwacyjne.',
+    'Elastyczne plany cenowe dla SyncShield CMMS. Wybierz między wersją w chmurze a wersją samodzielnie hostowaną naszego CMMS typu open source, aby zoptymalizować swoje operacje konserwacyjne.',
   'free_cmms.hero.subtitle': 'Darmowe Oprogramowanie CMMS',
   'free_cmms.hero.title': 'Zarządzaj Zleceniami Pracy i Zasobami - Zawsze Za Darmo',
   'free_cmms.hero.description':

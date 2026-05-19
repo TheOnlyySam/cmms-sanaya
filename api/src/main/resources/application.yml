@@ -123,6 +123,7 @@ oauth2:
 license-key: ${LICENSE_KEY:}
 license-fingerprint-required: ${LICENSE_FINGERPRINT_REQUIRED:true}
 license-file-path: ${LICENSE_FILE_PATH:}
+free-license-users-limit: ${FREE_LICENSE_USERS_LIMIT:5}
 white-labeling:
   logo-paths: ${LOGO_PATHS:}
   custom-colors: ${CUSTOM_COLORS:}

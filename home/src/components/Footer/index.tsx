@@ -1,10 +1,11 @@
 import { Box, Container, Grid, Stack, Typography } from "@mui/material";
-import { GitHub, LinkedIn, Mail, Phone, Sms } from "@mui/icons-material";
+import { GitHub, LinkedIn, Mail } from "@mui/icons-material";
 import { getFeaturesLinks, getIndustriesLinks } from "src/utils/urlPaths";
 import { getTranslations } from "next-intl/server";
 import { ReactNode } from "react";
 import { FooterAnchor, FooterLink, FooterWrapper, SectionHeading } from "./styles";
 import Image from "next/image";
+import { getBrandServer } from "src/utils/serverBrand";
 
 interface ContactItem {
   icon: ReactNode;
@@ -68,6 +69,7 @@ type FooterSection = ContactSection | LinksSection | DynamicSection | SocialSect
 
 export default async function Footer() {
   const t = await getTranslations();
+  const brandConfig = await getBrandServer();
 
   const footerSections: FooterSection[] = [
     {
@@ -76,18 +78,8 @@ export default async function Footer() {
       items: [
         {
           icon: <Mail fontSize="small" />,
-          text: "contact@atlas-cmms.com",
-          href: "mailto:contact@atlas-cmms.com",
-        },
-        {
-          icon: <Phone fontSize="small" />,
-          text: "+212630690050",
-          href: "tel:+212630690050",
-        },
-        {
-          icon: <Sms fontSize="small" />,
-          text: "+212630690050",
-          href: "sms:+212630690050",
+          text: brandConfig.mail,
+          href: `mailto:${brandConfig.mail}`,
         },
       ],
     },
@@ -246,7 +238,7 @@ export default async function Footer() {
         </Grid>
         <Box mt={4} textAlign="center">
           <Typography variant="body2" suppressHydrationWarning>
-            © {new Date().getFullYear()} Intelloop. All rights reserved.
+            © {new Date().getFullYear()} {brandConfig.shortName}. All rights reserved.
           </Typography>
         </Box>
       </Container>

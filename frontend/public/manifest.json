@@ -1,10 +1,10 @@
 {
-  "theme_color": "#1975ff",
-  "background_color": "#f2f5f9",
+  "theme_color": "#0d1f3b",
+  "background_color": "#0d1f3b",
   "display": "standalone",
   "start_url": ".",
-  "short_name": "Atlas",
-  "name": "Atlas CMMS",
+  "short_name": "SyncShield",
+  "name": "SyncShield CMMS",
   "icons": [
     {
       "src": "/static/images/logo/logo.png",

@@ -316,7 +316,8 @@
         <span th:text="#{this_wo_created}"></span><br/>
         <img th:src="@{${#strings.isEmpty(environment.getProperty('white-labeling.logo-paths')) ?
 environment.getProperty('api.host') + '/images/logo.png' :
-environment.getProperty('api.host') + '/images/custom-logo.png'}}" width="75" height="75" style="margin-top: 10px;"/>
+environment.getProperty('api.host') + '/images/custom-logo.png'}}"
+             width="220" style="margin-top: 10px; height: auto;"/>
     </div>
 </div>
 </body>

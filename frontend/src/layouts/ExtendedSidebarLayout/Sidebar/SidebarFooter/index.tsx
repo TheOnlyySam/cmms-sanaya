@@ -76,7 +76,7 @@ function SidebarFooter() {
             {...(isCloudVersion
               ? { to: '/app/subscription/plans' }
               : {
-                  href: 'https://atlas-cmms.com/pricing?type=selfhosted',
+                  href: 'https://www.syncshield.io/pricing?type=selfhosted',
                   target: '_blank',
                   rel: 'noopener noreferrer'
                 })}
@@ -97,7 +97,7 @@ function SidebarFooter() {
               color: `${theme.colors.alpha.trueWhite[100]}`
             }
           }}
-          onClick={() => window.open('https://grashjs.github.io/user-guide')}
+          onClick={() => window.open('https://www.syncshield.io')}
         >
           <QuestionMarkTwoToneIcon fontSize="small" />
         </IconButton>

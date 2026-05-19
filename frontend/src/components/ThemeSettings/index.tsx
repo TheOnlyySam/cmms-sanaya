@@ -111,7 +111,7 @@ const ColorSchemeWrapper = styled(Box)(
 
     &.pureLight {
         .primary {
-            background: #5569ff;
+            background: #00c8d0;
         }
     
         .secondary {
@@ -121,7 +121,7 @@ const ColorSchemeWrapper = styled(Box)(
 
     &.greyGoose {
         .primary {
-            background: #2442AF;
+            background: #00c8d0;
         }
     
         .secondary {
@@ -131,11 +131,11 @@ const ColorSchemeWrapper = styled(Box)(
     
     &.purpleFlow {
         .primary {
-            background: #9b52e1;
+            background: #00c8d0;
         }
     
         .secondary {
-            background: #00b795;
+            background: #102038;
         }
     }
   `

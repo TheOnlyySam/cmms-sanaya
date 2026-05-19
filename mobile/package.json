@@ -1,5 +1,5 @@
 {
-  "name": "atlas",
+  "name": "syncshield",
   "version": "1.0.38",
   "scripts": {
     "start": "expo start --dev-client",

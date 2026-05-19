@@ -1,11 +1,11 @@
 # Build Stage
-FROM maven:3.9.3-eclipse-temurin-17 AS build
+FROM docker.io/library/maven:3.9.3-eclipse-temurin-17 AS build
 WORKDIR /app
 COPY . .
 RUN mvn clean package -DskipTests
 
 # Runtime Stage
-FROM amazoncorretto:17-alpine
+FROM docker.io/library/amazoncorretto:17-alpine
 
 # Set the working directory in the container
 WORKDIR /app

@@ -38,8 +38,8 @@ function LoginCover() {
               my: 4
             }}
           >
-            <Box textAlign="center">
-              <Logo />
+            <Box textAlign="center" sx={{ width: '100%' }}>
+              <Logo auth />
               <Typography
                 variant="h2"
                 sx={{
@@ -70,7 +70,11 @@ function LoginCover() {
                 {t('no_account_yet')}
               </Typography>{' '}
               <Box display={{ xs: 'block', md: 'inline-block' }}>
-                <Link component={RouterLink} to="/account/register">
+                <Link
+                  component={RouterLink}
+                  to="/account/register"
+                  sx={{ color: '#00c8d0' }}
+                >
                   <b>{t('signup_here')}</b>
                 </Link>
               </Box>

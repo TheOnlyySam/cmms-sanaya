@@ -340,7 +340,7 @@ function HeaderUserbox() {
           </MenuItem>
           <MenuItem
             onClick={() => {
-              window.open('https://grashjs.github.io/user-guide');
+              window.open('https://www.syncshield.io');
             }}
           >
             <ListItemIcon>

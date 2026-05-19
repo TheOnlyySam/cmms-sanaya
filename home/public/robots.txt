@@ -2,4 +2,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://atlas-cmms.com/sitemap.xml
+Sitemap: https://www.syncshield.io/sitemap.xml

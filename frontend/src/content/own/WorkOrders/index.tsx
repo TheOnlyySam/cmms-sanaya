@@ -17,7 +17,6 @@ import {
   Stack,
   Tab,
   Tabs,
-  Tooltip,
   Typography
 } from '@mui/material';
 import { useTranslation } from 'react-i18next';
@@ -148,8 +147,7 @@ function WorkOrders() {
       value: 'calendar',
       label: t('calendar_view'),
       disabled: !hasViewPermission(PermissionEntity.WORK_ORDERS)
-    },
-    { value: 'column', label: t('column_view'), disabled: true }
+    }
   ];
   const handleTabsChange = (_event: ChangeEvent<{}>, value: string): void => {
     setCurrentTab(value);
@@ -867,22 +865,14 @@ function WorkOrders() {
             textColor="primary"
             indicatorColor="primary"
           >
-            {tabs.map((tab) =>
-              tab.disabled ? (
-                <Tooltip title={t('Coming Soon')} placement="top">
-                  <span>
-                    <Tab
-                      key={tab.value}
-                      label={tab.label}
-                      value={tab.value}
-                      disabled={tab.disabled}
-                    />
-                  </span>
-                </Tooltip>
-              ) : (
-                <Tab key={tab.value} label={tab.label} value={tab.value} />
-              )
-            )}
+            {tabs.map((tab) => (
+              <Tab
+                key={tab.value}
+                label={tab.label}
+                value={tab.value}
+                disabled={tab.disabled}
+              />
+            ))}
           </Tabs>
           <Stack direction={'row'} alignItems="center" spacing={1}>
             <IconButton onClick={handleOpenMenu} color="primary">

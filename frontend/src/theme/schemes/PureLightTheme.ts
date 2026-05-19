@@ -4,15 +4,15 @@ import { customColors } from '../../config';
 import i18n from 'src/i18n/i18n';
 
 const themeColors = {
-  primary: '#5569ff',
-  secondary: '#6E759F',
+  primary: '#00c8d0',
+  secondary: '#6890b0',
   success: '#57CA22',
   warning: '#FFA319',
   error: '#FF1943',
   info: '#33C2FF',
-  black: '#223354',
+  black: '#102038',
   white: '#ffffff',
-  primaryAlt: '#000C57',
+  primaryAlt: '#102038',
   ...customColors
 };
 
@@ -42,7 +42,7 @@ const colors = {
       '0px 1px 4px rgba(255, 25, 67, 0.25), 0px 3px 12px 2px rgba(255, 25, 67, 0.35)',
     info: '0px 1px 4px rgba(51, 194, 255, 0.25), 0px 3px 12px 2px rgba(51, 194, 255, 0.35)',
     primary:
-      '0px 1px 4px rgba(85, 105, 255, 0.25), 0px 3px 12px 2px rgba(85, 105, 255, 0.35)',
+      '0px 1px 4px rgba(0, 200, 208, 0.22), 0px 3px 12px 2px rgba(0, 200, 208, 0.3)',
     warning:
       '0px 1px 4px rgba(255, 163, 25, 0.25), 0px 3px 12px 2px rgba(255, 163, 25, 0.35)',
     card: '0px 9px 16px rgba(159, 162, 191, .18), 0px 2px 2px rgba(159, 162, 191, 0.32)',

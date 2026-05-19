@@ -7,11 +7,7 @@ import {
   useMediaQuery,
   useTheme
 } from '@mui/material';
-import { useTranslation } from 'react-i18next';
-import { customLogoPaths, homeUrl } from '../../config';
-import { useEffect, useState } from 'react';
 import { useBrand } from '../../hooks/useBrand';
-import { getLocalizedHomeUrl } from '../../utils/urlPaths';
 
 const LogoWrapper = styled('a')(
   ({ theme }) => `
@@ -23,6 +19,16 @@ const LogoWrapper = styled('a')(
         max-width: 180px;
         margin: 0 auto;
         font-weight: ${theme.typography.fontWeightBold};
+`
+);
+
+const AuthLogoWrapper = styled(Box)(
+  () => `
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin: 0 auto 14px;
+        text-align: center;
 `
 );
 
@@ -54,31 +60,52 @@ const TooltipWrapper = styled(({ className, ...props }: TooltipProps) => (
 }));
 interface OwnProps {
   white?: boolean;
+  auth?: boolean;
 }
 
-function Logo({ white }: OwnProps) {
-  const { t, i18n } = useTranslation();
+function Logo({ white, auth = false }: OwnProps) {
   const theme = useTheme();
-  const width = white ? 160 : 120;
-  const height = 60;
+  const width = auth ? 280 : 170;
+  const height = auth ? 54 : 46;
   const mobile = useMediaQuery(theme.breakpoints.down('sm'));
   const { logo, name: brandName } = useBrand();
 
-  return (
+  const logoLink = (
     <TooltipWrapper title={brandName} arrow>
-      <LogoWrapper href={getLocalizedHomeUrl('', i18n.language)}>
-        <LogoSignWrapper>
+      <LogoWrapper
+        href="/app/work-orders"
+        sx={{
+          maxWidth: auth ? 'none' : 180,
+          width: auth ? `${width * (mobile ? 0.7 : 1)}px` : 'auto',
+          justifyContent: 'center',
+          flexShrink: 0
+        }}
+      >
+        <LogoSignWrapper
+          sx={{
+            width: auth ? `${width * (mobile ? 0.7 : 1)}px` : 'auto',
+            height: auth ? 62 : 52,
+            minWidth: auth ? 0 : 52,
+            mb: 0
+          }}
+        >
           <img
             src={white ? logo.white : logo.dark}
             width={`${width * (mobile ? 0.7 : 1)}px`}
             height={`${height * (mobile ? 0.7 : 1)}px`}
             alt={'logo'}
-            style={{ objectFit: 'contain' }}
+            style={{
+              display: 'block',
+              objectFit: 'contain',
+              transform: auth ? 'translateX(18px)' : undefined
+            }}
           />
         </LogoSignWrapper>
       </LogoWrapper>
     </TooltipWrapper>
   );
+
+  return auth ? <AuthLogoWrapper>{logoLink}</AuthLogoWrapper> : logoLink;
 }
 
 export default Logo;

@@ -1,4 +1,3 @@
-name: atlas-cmms
 services:
   postgres:
     image: postgres:16-alpine
@@ -12,7 +11,10 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
   api:
-    image: intelloop/atlas-cmms-backend
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    image: syncshield-cmms-backend-local
     container_name: atlas-cmms-backend
     depends_on:
       - postgres
@@ -51,6 +53,7 @@ services:
       LICENSE_KEY: ${LICENSE_KEY:-}
       LICENSE_FINGERPRINT_REQUIRED: ${LICENSE_FINGERPRINT_REQUIRED:-true}
       LICENSE_FILE_PATH: ${LICENSE_FILE_PATH:-}
+      FREE_LICENSE_USERS_LIMIT: ${FREE_LICENSE_USERS_LIMIT:-999999}
       ALLOWED_ORGANIZATION_ADMINS: ${ALLOWED_ORGANIZATION_ADMINS:-}
       LOGO_PATHS: ${LOGO_PATHS}
       CUSTOM_COLORS: ${CUSTOM_COLORS}
@@ -71,7 +74,7 @@ services:
     build:
       context: ./frontend
       dockerfile: Dockerfile
-    image: atlas-cmms-frontend-local
+    image: syncshield-cmms-frontend-local
     container_name: atlas-cmms-frontend
     environment:
         API_URL: ${PUBLIC_API_URL}
@@ -90,7 +93,7 @@ services:
         PADDLE_ENVIRONMENT: ${PADDLE_ENVIRONMENT:-sandbox}
         RECAPTCHA_SITE_KEY: ${RECAPTCHA_SITE_KEY:- }
     ports:
-      - "3000:3000"
+      - "80:3000"
     depends_on:
       - api
   minio:

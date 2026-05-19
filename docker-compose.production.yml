@@ -1,10 +1,10 @@
 services:
   api:
-    image: atlas-cmms-backend-local
+    image: syncshield-cmms-backend-local
     build:
       context: ./api
 
   frontend:
-    image: atlas-cmms-frontend-local
+    image: syncshield-cmms-frontend-local
     build:
       context: ./frontend

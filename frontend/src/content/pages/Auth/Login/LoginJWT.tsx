@@ -21,6 +21,10 @@ import { CustomSnackBarContext } from '../../../../contexts/CustomSnackBarContex
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import { apiUrl, isSSOEnabled, oauth2Provider } from '../../../../config';
 
+const SYNC_SHIELD_CYAN = '#00c8d0';
+const SYNC_SHIELD_CYAN_DARK = '#00aeb6';
+const SYNC_SHIELD_NAVY = '#102038';
+
 const LoginJWT: FC = () => {
   const { login } = useAuth() as any;
   const isMountedRef = useRefMounted();
@@ -111,14 +115,34 @@ const LoginJWT: FC = () => {
             display={{ xs: 'block', md: 'flex' }}
             justifyContent="space-between"
           >
-            <Link component={RouterLink} to="/account/recover-password">
+            <Link
+              component={RouterLink}
+              to="/account/recover-password"
+              sx={{
+                color: SYNC_SHIELD_CYAN,
+                '&:hover': {
+                  color: SYNC_SHIELD_CYAN_DARK
+                }
+              }}
+            >
               <b>{t('lost_password')}</b>
             </Link>
           </Box>
 
           <Button
             sx={{
-              mt: 3
+              mt: 3,
+              backgroundColor: SYNC_SHIELD_CYAN,
+              color: '#ffffff',
+              boxShadow: '0 8px 18px rgba(0, 200, 208, 0.24)',
+              '&:hover': {
+                backgroundColor: SYNC_SHIELD_CYAN_DARK,
+                boxShadow: '0 10px 22px rgba(0, 200, 208, 0.3)'
+              },
+              '&.Mui-disabled': {
+                backgroundColor: 'rgba(0, 200, 208, 0.45)',
+                color: '#ffffff'
+              }
             }}
             color="primary"
             startIcon={isSubmitting ? <CircularProgress size="1rem" /> : null}
@@ -141,6 +165,14 @@ const LoginJWT: FC = () => {
               </Box>
 
               <Button
+                sx={{
+                  borderColor: SYNC_SHIELD_CYAN,
+                  color: SYNC_SHIELD_NAVY,
+                  '&:hover': {
+                    borderColor: SYNC_SHIELD_CYAN_DARK,
+                    backgroundColor: 'rgba(0, 200, 208, 0.08)'
+                  }
+                }}
                 onClick={() => {
                   window.location.href = `${apiUrl}oauth2/authorize/${oauth2Provider.toLowerCase()}`;
                 }}

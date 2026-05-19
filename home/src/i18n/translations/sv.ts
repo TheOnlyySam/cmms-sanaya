@@ -1572,7 +1572,7 @@ const locale = {
     get_your_license: "Få din licens",
     title: "Prissättning",
     description:
-      "Flexibla prisplaner för Atlas CMMS. Välj mellan Cloud- och Self-Hosted-versioner av vårt open-source CMMS för att optimera din underhållsverksamhet.",
+      "Flexibla prisplaner för SyncShield CMMS. Välj mellan Cloud- och Self-Hosted-versioner av vårt open-source CMMS för att optimera din underhållsverksamhet.",
   },
   get_started: "Kom igång",
   workflow_automation: "Arbetsflödesautomatisering",
@@ -1647,9 +1647,9 @@ const locale = {
   },
   overview_1: {
     description:
-      "Atlas CMMS är ett gratis, open-source CMMS för att hantera arbetsordrar, förebyggande underhåll, tillgångar och anläggningar. Effektivisera din underhållsverksamhet idag.",
+      "SyncShield CMMS är ett gratis, open-source CMMS för att hantera arbetsordrar, förebyggande underhåll, tillgångar och anläggningar. Effektivisera din underhållsverksamhet idag.",
     keywords:
-      "CMMS, datoriserat underhållssystem, EAM, enterprise asset management, open source cmms, gratis underhållsprogramvara, arbetsorderhantering, förebyggande underhåll, tillgångsspårning, fastighetsförvaltning, programvara för underhållsspårning, utrustningsunderhåll, Atlas CMMS",
+      "CMMS, datoriserat underhållssystem, EAM, enterprise asset management, open source cmms, gratis underhållsprogramvara, arbetsorderhantering, förebyggande underhåll, tillgångsspårning, fastighetsförvaltning, programvara för underhållsspårning, utrustningsunderhåll, SyncShield CMMS",
   },
 };
 

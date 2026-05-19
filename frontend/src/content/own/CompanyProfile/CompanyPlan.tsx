@@ -123,7 +123,7 @@ function CompanyPlan(props: CompanyPlanProps) {
             {...(isCloudVersion
               ? { to: '/app/subscription/plans' }
               : {
-                  href: 'https://atlas-cmms.com/pricing?type=selfhosted',
+                  href: 'https://www.syncshield.io/pricing?type=selfhosted',
                   target: '_blank',
                   rel: 'noopener noreferrer'
                 })}

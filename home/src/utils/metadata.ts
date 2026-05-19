@@ -2,7 +2,7 @@
 import { Metadata } from "next";
 import { locales } from "src/i18n/request";
 
-const baseUrl = "https://atlas-cmms.com";
+const baseUrl = "https://www.syncshield.io";
 
 const getLocalePrefix = (locale: string) => (locale === "en" ? "" : `/${locale}`);
 export function getLocalizedMetadata(

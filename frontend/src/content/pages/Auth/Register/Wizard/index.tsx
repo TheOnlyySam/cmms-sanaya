@@ -75,7 +75,7 @@ function RegisterWizard() {
           }}
           maxWidth="md"
         >
-          <Logo />
+          <Logo auth />
           <Card
             sx={{
               mt: 3,

@@ -9,7 +9,7 @@
     <link href="../static/css/layout.css" rel="stylesheet"/>
 </head>
 
-<body style="background-color: #f4f4f4; margin: 0 !important; padding: 0 !important;">
+<body style="background-color: #eef6f8; margin: 0 !important; padding: 0 !important;">
 
 <!-- Email Template Fragment -->
 <div th:fragment="emailTemplate(headerText, preheaderText, messageText, buttonText, buttonLink)">
@@ -24,7 +24,14 @@
             <td th:bgcolor="${backgroundColor}" align="center">
                 <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
                     <tr>
-                        <td align="center" valign="top" style="padding: 40px 10px 40px 10px;"></td>
+                        <td align="center" valign="top" style="padding: 28px 10px 18px 10px;">
+                            <img th:src="@{${#strings.isEmpty(environment.getProperty('white-labeling.logo-paths')) ?
+    environment.getProperty('api.host') + '/images/logo-full-white.png' :
+    environment.getProperty('api.host') + '/images/custom-logo-white.png'}}"
+                                 width="260"
+                                 alt="SyncShield"
+                                 style="display: block; border: 0px; max-width: 260px; width: 100%; height: auto;"/>
+                        </td>
                     </tr>
                 </table>
             </td>
@@ -36,13 +43,8 @@
                 <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
                     <tr>
                         <td bgcolor="#ffffff" align="center" valign="top"
-                            style="padding: 40px 20px 20px 20px; border-radius: 8px 8px 0px 0px; color: #111111; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 48px; font-weight: 400; letter-spacing: 4px; line-height: 48px;">
-                            <h1 style="font-size: 48px; font-weight: 400; margin: 2;" th:text="${headerText}"></h1>
-                            <img th:src="@{${#strings.isEmpty(environment.getProperty('white-labeling.logo-paths')) ?
-    environment.getProperty('api.host') + '/images/logo.png' :
-    environment.getProperty('api.host') + '/images/custom-logo.png'}}"
-                                 width="150" height="150"
-                                 style="display: block; border: 0px; border-radius: 8px;"/>
+                            style="padding: 34px 24px 16px 24px; border-radius: 8px 8px 0px 0px; color: #0d1f3b; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 34px; font-weight: 700; line-height: 40px;">
+                            <h1 style="font-size: 34px; font-weight: 700; margin: 0;" th:text="${headerText}"></h1>
                         </td>
                     </tr>
                 </table>
@@ -51,7 +53,7 @@
 
         <!-- MESSAGE CONTENT -->
         <tr>
-            <td bgcolor="#f4f4f4" align="center" style="padding: 0px 10px 0px 10px;">
+            <td bgcolor="#eef6f8" align="center" style="padding: 0px 10px 0px 10px;">
                 <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
                     <tr>
                         <td bgcolor="#ffffff" align="left"
@@ -69,7 +71,7 @@
                                         <table border="0" cellspacing="0" cellpadding="0">
                                             <tr>
                                                 <td align="center" style="border-radius: 10px;"
-                                                    th:bgcolor="${backgroundColor}">
+                                                    bgcolor="#06bfca">
                                                     <a th:href="${buttonLink}" target="_blank"
                                                        style="font-size: 20px; font-family: Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; color: #ffffff; text-decoration: none; padding: 15px 25px; border-radius: 8px; display: inline-block;"
                                                        th:text="${buttonText}"></a>
@@ -96,10 +98,10 @@
 
         <!-- FOOTER SPACING -->
         <tr>
-            <td bgcolor="#f4f4f4" align="center" style="padding: 0px 10px 0px 10px;">
+            <td bgcolor="#eef6f8" align="center" style="padding: 0px 10px 0px 10px;">
                 <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
                     <tr>
-                        <td bgcolor="#f4f4f4" align="left"
+                        <td bgcolor="#eef6f8" align="left"
                             style="padding: 0px 30px 30px 30px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 14px; font-weight: 400; line-height: 18px;">
                             <br>
                         </td>
